@@ -6,14 +6,14 @@ import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 import Detail from "./Routes/Detail";
 import NotFound from "./Routes/NotFound";
-
+import Footer from "./Components/Footer";
+import './index.css';
 
 function App() {
   return (
       <div className="App">
           <Router>
           <Navbar/>
-          <Footer/>
             <Routes>              
                 <Route index element={<Home/>}/>
                 <Route path="contact" element={<Contact/>} />
@@ -21,6 +21,7 @@ function App() {
                 <Route path="detail" element={<Detail/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
+            <Footer/>
           </Router>
       </div>
   );
