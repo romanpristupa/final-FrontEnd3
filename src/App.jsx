@@ -10,19 +10,19 @@ import NotFound from "./Routes/NotFound";
 
 function App() {
   return (
-      
+      <div className="App">
           <Router>
-            <Routes>
-              <Route path="/" element={<Navbar/>}>
+          <Navbar/>
+          <Footer/>
+            <Routes>              
                 <Route index element={<Home/>}/>
                 <Route path="contact" element={<Contact/>} />
                 <Route path="favs" element={<Favs/>} />
                 <Route path="detail" element={<Detail/>} />
                 <Route path="*" element={<NotFound/>} />
-              </Route>      
             </Routes>
           </Router>
-      
+      </div>
   );
 }
 
