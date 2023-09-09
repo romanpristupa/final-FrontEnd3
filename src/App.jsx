@@ -12,17 +12,15 @@ import NotFound from "./Routes/NotFound";
 function App() {
   return (
       <div className="App">
+          <Router>
           <Navbar/>
           <Footer/>
-          <Router>
-            <Routes>
-              <Route path="/" element={<App/>}>
+            <Routes>              
                 <Route index element={<Home/>}/>
                 <Route path="contact" element={<Contact/>} />
                 <Route path="favs" element={<Favs/>} />
                 <Route path="detail" element={<Detail/>} />
                 <Route path="*" element={<NotFound/>} />
-              </Route>      
             </Routes>
           </Router>
       </div>
