@@ -7,8 +7,7 @@ import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 import Detail from "./Routes/Detail";
 import NotFound from "./Routes/NotFound";
-import Footer from "./Components/Footer";
-import './index.css';
+
 
 function App() {
   return (
