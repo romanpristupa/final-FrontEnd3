@@ -1,16 +1,19 @@
+import React from 'react';
+import useContext from 'react';
+import  GlobalContext from '../Components/Utils/Global.Context';   
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon} from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
-import ThemeContext from "./utils/global.context";
-import { useContext } from 'react';
-
-
-
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const {theme, handleChangeTheme} = useContext(ThemeContext);
+  const context = useContext(GlobalContext);
+  const { theme, toggleTheme } = context;
+
+  const handleChangeTheme = () => {
+      toggleTheme();
+  };
     
   return (
       <div>
@@ -35,8 +38,8 @@ const Navbar = () => {
             {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
             <button
              onClick={handleChangeTheme} 
-             style={{background:theme.background, color:theme.font}} >
-            <FontAwesomeIcon icon={faMoon} /> 
+             style={{background: theme.background, color: theme.font }} >
+             <FontAwesomeIcon icon={faMoon} /> 
              </button>
           </nav>
       </div>

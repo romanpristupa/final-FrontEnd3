@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ThemeContext, {themes} from "./Components/utils/global.context";
+import { GlobalProvider } from "./Components/Utils/Global.Context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -13,15 +13,16 @@ import NotFound from "./Routes/NotFound";
 
 function App() {
 
-  const [theme, setTheme] = useState (themes.light);
+   const [theme, setTheme] = useState({ light: "light", dark: "dark" });
+
 
   const handleChangeTheme = () => {
-    theme === themes.dark ? setTheme(themes.light) : setTheme(themes.dark);
+    theme === 'dark' ? setTheme('light') : setTheme('dark');
   };
 
   return (
     <div className="App">
-          <ThemeContext.Provider value = {{ theme, handleChangeTheme}}>
+          <GlobalProvider value = {{ theme, toggleTheme: handleChangeTheme }}>
              <Router>
                 <Navbar />
                 <Routes>              
@@ -33,7 +34,7 @@ function App() {
                 </Routes>  
                 <Footer />
              </Router>
-          </ThemeContext.Provider>
+          </GlobalProvider>
       </div>
   );
 }
