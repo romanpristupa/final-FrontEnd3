@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon} from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
@@ -9,12 +8,12 @@ import { useContext } from 'react';
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+
 const Navbar = () => {
   const {theme, handleChangeTheme} = useContext(ThemeContext);
     
   return (
       <div>
-    
           <nav >
             <div className='naoky'>
                 <h3>BY NAOKY</h3>
