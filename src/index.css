@@ -7,7 +7,7 @@
   --azul: rgb(91, 91, 229);
   --azul-hover: rgb(40, 40, 197);
   --azul-fran: rgb(102, 138, 255);
-  --verde: rgb(37, 177, 121);
+  --verde: rgb(54, 225, 157);
   --verde-fran: rgb(177, 214, 188);
   --rosa: rgb(181, 155, 176);
   --lila: #8a6df1ff;
@@ -19,6 +19,8 @@
   --salmon-fume:rgb(252, 84, 66);
   --grey-layer: rgb(224, 224, 224);
   --grey-button: 	rgb(115, 147, 179);
+  --error: rgb(255, 0, 0);
+  --exito: rgb(0, 147, 57);
   }
   
 
@@ -142,10 +144,11 @@ form{
   justify-content:center;
   align-items: center;
   width: 600px;
-  height: 200px;
+  height: 300px;
   margin: 20px 20px 20px 250px;
   padding: 20px;
   border: solid 2px;
+  background-color: var(--grey-layer);
 }
 
 .input{
@@ -169,6 +172,27 @@ form{
   box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul) 0px 5px 20px ;
   border: 2px solid var(--azul-fran) ;
   margin: 20px;
+}
+
+.alert-success {
+  transition: color 0.5s ease-in-out, opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  color: transparent;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.alert-success {
+  transition: color 0.5s ease-in-out, opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  color: var(--exito);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mensaje-error.aparecer {
+  transition: color 0.5s ease-in-out, opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  color: var(--error); 
+  opacity: 1;
+  transform: scale(1);
 }
 
 .card{

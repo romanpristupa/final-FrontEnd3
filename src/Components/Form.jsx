@@ -11,12 +11,15 @@ const Form = () => {
     const emailValido = validarEmail(email);
     if (nombreValido && emailValido) {
       setRespuesta(
-        <h2 style={{ color: 'green' }}>Gracias por registrarse</h2>
+        <div className="alert alert-success">
+        <h2>¡¡¡ Hola, {nombre} Gracias por registrarse !!!</h2>
+        <h3>¡¡¡ Te contactaremos vía email !!!</h3>
+        </div>
       );
       
     } else {
       setRespuesta(
-        <h2 style={{ color: 'red' }}>Por favor, verifica que la información sea correcta</h2>
+        <h2 className={"mensaje-error aparecer"}>"Verifica que la información sea correcta"</h2>
       );
  
 
@@ -24,8 +27,7 @@ const Form = () => {
    
   setTimeout(function(){
     setRespuesta(null); 
- }, 1000)
-
+ }, 3000)
  
     setNombre("");
     setEmail("");
@@ -51,9 +53,21 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={manejadorSubmit}>
-        <input className="input" type="text" placeholder="Ingrese Su Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-        <input className="input" type="email" placeholder="Ingrese Su Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <button className="button-submit" type="submit">Enviar</button>
+        <input className="input" 
+          type="text" 
+          placeholder="Ingrese Nombre" 
+          value={nombre} 
+          onChange={(e) => setNombre(e.target.value)} 
+        />
+        <input className="input" 
+          type="email" 
+          placeholder="Ingrese Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
+        <button className="button-submit" type="submit">
+          Enviar
+        </button>
         {respuesta}
       </form>
     </div>
