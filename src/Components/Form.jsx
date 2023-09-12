@@ -35,9 +35,9 @@ function validarEmail(email){
   return (
     <div>
       <form onSubmit={manejadorSubmit}>
-        <input type="text" placeholder="Ingrese Su Nombre" value={nombre} onChange={(e)=>setNombre(e.target.value)}  />
-        <input type="mail" placeholder="Ingrese Su Mail" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        <button type="submit">Enviar Mensaje</button>
+        <input className="input" type="text" placeholder="Ingrese Su Nombre" value={nombre} onChange={(e)=>setNombre(e.target.value)}  />
+        <input className="input" type="mail" placeholder="Ingrese Su Mail" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+        <button className="button-submit" type="submit">Enviar</button>
         {error && <h2 style={{ color: 'red' }}>Por favor chequea que la información sea correcta</h2>}
       </form>
     </div>

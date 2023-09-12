@@ -138,11 +138,37 @@ footer > p{
 
 form{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+  width: 600px;
+  height: 200px;
+  margin: 20px 20px 20px 250px;
+  padding: 20px;
+  border: solid 2px;
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 250px;
+  margin: 10px;
+  background-color: var(--grey);
+  border-radius: 5px;
+}
+
+.button-submit{
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--azul-fran);
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul) 0px 5px 20px ;
+  border: 2px solid var(--azul-fran) ;
+  margin: 20px;
 }
 
 .card{
