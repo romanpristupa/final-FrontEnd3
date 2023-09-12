@@ -1,47 +1,63 @@
-import React from "react";
-import { useState } from "react";
-
+import React, { useState } from "react";
 
 const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [respuesta, setRespuesta] = useState(null);
 
-const [error,setError] = useState(false);
-const [nombre,setNombre] = useState ("");
-const [email,setEmail] = useState("");
+  const manejadorSubmit = (e) => {
+    e.preventDefault();
+    const nombreValido = validarNombre(nombre);
+    const emailValido = validarEmail(email);
+    if (nombreValido && emailValido) {
+      setRespuesta(
+        <h2 style={{ color: 'green' }}>Gracias por registrarse</h2>
+      );
+      
+    } else {
+      setRespuesta(
+        <h2 style={{ color: 'red' }}>Por favor, verifica que la información sea correcta</h2>
+      );
+ 
 
-const manejadorSubmit= (e) =>{
-  e.preventDefault();
-  validarNombre(nombre);
-  validarEmail(email);
-
-}
-function validarNombre(nombre){
-  if(nombre.length < 5){
-      setError(true);
-  }else{
-      setError(false)
   }
-}
+   
+  setTimeout(function(){
+    setRespuesta(null); 
+ }, 1000)
 
-function validarEmail(email){
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
-  if(!regex.test(email)){
-      setError(true);
-  }else{
-     setError(false)
+ 
+    setNombre("");
+    setEmail("");
+  };
+
+  function validarNombre(nombre) {
+    if (nombre.length < 5) {
+      return false;
+    } else {
+      return true;
+    }
   }
-}
+
+  function validarEmail(email) {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+[.][a-zA-Z]{2,4}$/;
+    if (!regex.test(email)) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   return (
     <div>
       <form onSubmit={manejadorSubmit}>
-        <input className="input" type="text" placeholder="Ingrese Su Nombre" value={nombre} onChange={(e)=>setNombre(e.target.value)}  />
-        <input className="input" type="mail" placeholder="Ingrese Su Mail" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+        <input className="input" type="text" placeholder="Ingrese Su Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+        <input className="input" type="email" placeholder="Ingrese Su Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
         <button className="button-submit" type="submit">Enviar</button>
-        {error && <h2 style={{ color: 'red' }}>Por favor chequea que la información sea correcta</h2>}
+        {respuesta}
       </form>
     </div>
   );
-};
+  }
 
 export default Form;
