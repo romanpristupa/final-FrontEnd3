@@ -1,15 +1,16 @@
-import React from 'react';
-import useContext from 'react';
-import  GlobalContext from '../Components/Utils/Global.Context';   
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon} from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
+import  GlobalContext from './GlobalContext';   
+
+
+
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
-  const context = useContext(GlobalContext);
-  const { theme, toggleTheme } = context;
+  const { theme, toggleTheme } = useContext(GlobalContext);
 
   const handleChangeTheme = () => {
       toggleTheme();
