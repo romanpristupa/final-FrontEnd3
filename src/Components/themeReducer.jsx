@@ -1,5 +1,3 @@
-// themeReducer.js
-
 
 
 const themeReducer = (state, action) => {

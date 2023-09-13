@@ -12,14 +12,14 @@ const Form = () => {
     if (nombreValido && emailValido) {
       setRespuesta(
         <div className="alert alert-success">
-        <h2>¡¡¡ Hola, {nombre} Gracias por registrarse !!!</h2>
-        <h3>¡¡¡ Te contactaremos vía email !!!</h3>
+        <h2>¡¡¡ Gracias, {nombre} por registrarte !!!</h2>
+        <h3>Te contactaremos cuanto antes vía email !!!</h3>
         </div>
       );
       
     } else {
       setRespuesta(
-        <h2 className={"mensaje-error aparecer"}>"Verifica que la información sea correcta"</h2>
+        <h2 className={"mensaje-error aparecer"}>"Por favor Verifique su información nuevamente"</h2>
       );
  
 
@@ -55,7 +55,7 @@ const Form = () => {
       <form onSubmit={manejadorSubmit}>
         <input className="input" 
           type="text" 
-          placeholder="Ingrese Nombre" 
+          placeholder="Ingrese Nombre Completo" 
           value={nombre} 
           onChange={(e) => setNombre(e.target.value)} 
         />

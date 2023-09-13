@@ -2,11 +2,11 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun} from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
-import  { useTheme } from './GlobalContext';   
+import { useTheme } from './GlobalContext';   
 
 
 function Navbar ()  {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, data } = useTheme();
     
   return (
       <div>
@@ -24,7 +24,10 @@ function Navbar ()  {
                       <Link to="/contact">Contacto</Link>
                     </li>
                     <li>
-                      <Link to="/favs">Favoritos</Link>
+                      <Link to="/detail">Detalle</Link>
+                    </li>
+                    <li>
+                      <Link to="/favs">Destacados</Link>
                     </li>
                 </ul>
             </div>
@@ -33,8 +36,16 @@ function Navbar ()  {
              <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /> 
              </button>
           </nav>
+          <div>
+              <h2>Datos de la API:</h2>
+              <ul>
+                 {data.map((object) => (
+                 <li key={object.id}>{object.email}</li>
+                ))}
+              </ul>
+          </div>
       </div>
-  );
-};
+    );
+  }
 
-export default Navbar;
+  export default Navbar;
