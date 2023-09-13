@@ -1,20 +1,22 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import { createContext, useContext, useReducer, useMemo } from "react";
+import { themeReducer, initialState } from "./themeReducer";
 
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children })  => {
-  const [theme, setTheme] = useState('light');
+  const [state, dispatch] = useReducer(themeReducer, initialState);
 
   const toggleTheme = () => {
-      setTheme((prevtheme) => (prevtheme === 'light' ? 'dark' : 'light'));
+      dispatch({type: "TOGGLE_THEME"});
     };
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+  const value = useMemo(() => ({ theme: state.theme, toggleTheme }), [state.theme,
+  ]);
 
   return (
     <ThemeContext.Provider value={value}>
-      <div className={theme}>{children}</div>
+      <div className={state.theme}>{children}</div>
     </ThemeContext.Provider>
   );
 }
