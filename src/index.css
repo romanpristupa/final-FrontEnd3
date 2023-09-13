@@ -9,6 +9,7 @@
   --azul-fran: rgb(102, 138, 255);
   --verde: rgb(54, 225, 157);
   --verde-fran: rgb(177, 214, 188);
+  --verde-hover: rgb(161, 177, 73);
   --rosa: rgb(181, 155, 176);
   --lila: #8a6df1ff;
   --laranja: rgb(84, 31, 23);
@@ -80,7 +81,6 @@ h3{
 
 .logo{
   display: flex;
-  display: flex;
   width: 40px;
   height: 40px;
   margin: 10px 0px 20x 0px;
@@ -130,8 +130,12 @@ footer {
 }
 
 footer > img{
-  width: 200px;
-  margin: 0;
+  width: 50px;
+  height: 40px;
+  margin: 0px 0px 0px 10px;
+  border-radius: 5px;
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul-hover) 0px 5px 10px ;
+  border: 1px solid var(--azul-fran) ;
 }
 footer > p{
   margin: 0;
@@ -172,6 +176,10 @@ form{
   box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul) 0px 5px 20px ;
   border: 2px solid var(--azul-fran) ;
   margin: 20px;
+}
+
+.button-submit:hover{
+  border: 0.5px solid var(--verde-hover);
 }
 
 .alert-success {

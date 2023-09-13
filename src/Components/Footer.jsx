@@ -3,8 +3,8 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer>
-        <p>Powered by</p>
-        <img src="./images/DH.png" alt='DH-logo' />
+        <p>Powered by NAOKY solutions</p>
+        <img src="./images/logo.png" alt='Naoky logo' />
     </footer>
   )
 }
