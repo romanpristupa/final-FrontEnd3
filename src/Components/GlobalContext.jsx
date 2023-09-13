@@ -6,7 +6,7 @@ const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children })  => {
   const [state, dispatch] = useReducer(themeReducer, initialState);
-  const [data, setData] = useState([]);
+  const [doctores, setDoctores] = useState([]);
 
    // Función asincrónica para obtener datos de la API
    const fetchData = async () => {
@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children })  => {
         throw new Error("Error al obtener datos de la API");
       }
       const convert = await response.json();
-      setData(convert);
+      setDoctores(convert);
       // Actualiza el estado global con los datos de la API, por ejemplo:
       // dispatch({ type: "SET_DATA", payload: data });
     } catch (error) {
@@ -34,7 +34,7 @@ export const ThemeProvider = ({ children })  => {
     };
 
   // Utiliza useMemo para evitar que el valor del contexto cambie innecesariamente
-    const value = useMemo(() => ({ theme: state.theme, toggleTheme, data }), [state.theme, data]);
+    const value = useMemo(() => ({ theme: state.theme, toggleTheme, doctores }), [state.theme, doctores]);
   
     return (
       <ThemeContext.Provider value={value}>

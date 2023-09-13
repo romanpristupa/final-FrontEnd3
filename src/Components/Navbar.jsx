@@ -6,7 +6,7 @@ import { useTheme } from './GlobalContext';
 
 
 function Navbar ()  {
-  const { theme, toggleTheme, data } = useTheme();
+  const { theme, toggleTheme} = useTheme();
     
   return (
       <div>
@@ -36,14 +36,6 @@ function Navbar ()  {
              <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /> 
              </button>
           </nav>
-          <div>
-              <h2>Datos de la API:</h2>
-              <ul>
-                 {data.map((object) => (
-                 <li key={object.id}>{object.email}</li>
-                ))}
-              </ul>
-          </div>
       </div>
     );
   }
