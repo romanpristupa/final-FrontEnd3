@@ -1,6 +1,6 @@
-import React from "react";
+
 import { useState } from "react";
-import { GlobalProvider } from "./Components/GlobalContext";
+import { ThemeProvider } from "./Components/GlobalContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -12,17 +12,11 @@ import NotFound from "./Routes/NotFound";
 
 
 function App() {
-
-   const [theme, setTheme] = useState({ light: "light", dark: "dark" });
-
-
-  const handleChangeTheme = () => {
-    theme === 'dark' ? setTheme('light') : setTheme('dark');
-  };
+   const [theme] = useState("light");
 
   return (
-    <div className="App">
-          <GlobalProvider value = {{ theme, toggleTheme: handleChangeTheme }}>
+   <ThemeProvider>
+      <div className= {`App ${theme}`}>
              <Router>
                 <Navbar />
                 <Routes>              
@@ -33,9 +27,9 @@ function App() {
                    <Route path="*" element={<NotFound/>} />
                 </Routes>  
                 <Footer />
-             </Router>
-          </GlobalProvider>
+             </Router>      
       </div>
+   </ThemeProvider>
   );
 }
 

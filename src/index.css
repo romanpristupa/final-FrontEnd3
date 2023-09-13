@@ -78,13 +78,15 @@ h3{
   margin: 30px 20px 30px 0px ;
 
 }
-
+ 
 .logo{
   display: flex;
-  width: 40px;
+  width: 50px;
   height: 40px;
   margin: 10px 0px 20x 0px;
   border-radius: 5px;
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul-hover) 0px 5px 10px ;
+  border: 1px solid var(--azul-fran) ;
 }
 
 li{
@@ -99,11 +101,24 @@ button{
   cursor: pointer;
   width: 50px;
   height: 30px;
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--salmon) 0px 9px 30px ;
+  border: 1px solid var(--azul-fran) ;
+}
+
+.dark-nav {
+  background-color: #333;
+  color: white;
+  
+}
+
+.light-nav {
+  background-color: #fff;
+  color: #333;
 }
 
 h1{
   text-align: center;
-  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul) 0px 5px 10px ;
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--salmon) 0px 9px 30px ;
   border: 1px solid var(--azul-fran) ;
 }
 
@@ -117,43 +132,20 @@ a:hover{
   color: rgb(136, 136, 136);
 } 
 
-footer {
+form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
-}
-
-footer > img{
-  width: 50px;
-  height: 40px;
-  margin: 0px 0px 0px 10px;
-  border-radius: 5px;
-  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul-hover) 0px 5px 10px ;
-  border: 1px solid var(--azul-fran) ;
-}
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
-}
-
-form{
-  display: flex;
-  flex-direction:column;
-  justify-content:center;
   align-items: center;
-  width: 600px;
-  height: 300px;
-  margin: 20px 20px 20px 250px;
+  width: 100%; /* Usa el ancho completo del contenedor padre */
+  max-width: 600px; /* Ancho máximo del formulario */
+  height: auto; /* Altura automática según su contenido */
+  margin: 20px auto; /* Margen superior e inferior de 20px, y los laterales automáticos */
   padding: 20px;
   border: solid 2px;
   background-color: var(--grey-layer);
 }
+
 
 .input{
   display: flex;
@@ -252,4 +244,30 @@ tr:nth-child(even) {
 }
 .dark > a {
   color: white;
+}
+
+
+footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  bottom: 0;
+  width: 90%;
+  height: 40px;
+  margin-top: 2rem;
+}
+
+footer > img{
+  width: 50px;
+  height: 40px;
+  margin: 0px 0px 0px 10px;
+  border-radius: 5px;
+  box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--azul-hover) 0px 5px 10px ;
+  border: 1px solid var(--azul-fran) ;
+}
+footer > p{
+  margin: 0;
+  padding-top: 0.7rem;
 }

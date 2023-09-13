@@ -1,24 +1,15 @@
-import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon} from '@fortawesome/free-solid-svg-icons'; 
+import { faMoon, faSun} from '@fortawesome/free-solid-svg-icons'; 
 import { Link } from 'react-router-dom';
-import  GlobalContext from './GlobalContext';   
+import  { useTheme } from './GlobalContext';   
 
 
-
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
-const Navbar = () => {
-  const { theme, toggleTheme } = useContext(GlobalContext);
-
-  const handleChangeTheme = () => {
-      toggleTheme();
-  };
+function Navbar ()  {
+  const { theme, toggleTheme } = useTheme();
     
   return (
       <div>
-          <nav >
+           <nav>
             <div className='naoky'>
                 <h3>BY NAOKY</h3>
                 <img className='logo' src='/images/logo.png' alt='Logo'/>
@@ -36,15 +27,13 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
             <button
-             onClick={handleChangeTheme} 
-             style={{background: theme.background, color: theme.font }} >
-             <FontAwesomeIcon icon={faMoon} /> 
+             onClick={toggleTheme}>
+             <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} /> 
              </button>
           </nav>
       </div>
-  )
-}
+  );
+};
 
 export default Navbar;
