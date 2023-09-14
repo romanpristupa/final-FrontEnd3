@@ -27,7 +27,7 @@ const Card = () => {
   };
 
   return (
-    <div className="card">
+    <div className="card-body">
       {doctores.map((doctor) => (
         <div key={doctor.id} className="card">
           <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
