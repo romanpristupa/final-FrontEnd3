@@ -1,32 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "./GlobalContext";
-
-// name, username, id
 
 const Card = () => {
   const { doctores } = useTheme();
-  
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+  const [favoritos, setFavoritos] = useState([]);
+
+  const obtenerFavoritosDesdeLocalStorage = () => {
+    const favoritosGuardados = JSON.parse(localStorage.getItem("favoritos")) || [];
+    setFavoritos(favoritosGuardados);
+  };
+
+  useEffect(() => {
+    obtenerFavoritosDesdeLocalStorage();
+  }, []);
+
+  const addFav = (e, id) => {
+    e.preventDefault();
+    const doctor = doctores.find((doctor) => doctor.id === id);
+
+    if (doctor && !favoritos.some((fav) => fav.id === doctor.id)) {
+      const nuevosFavoritos = [...favoritos, doctor];
+      setFavoritos(nuevosFavoritos);
+
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
+    }
+  };
 
   return (
     <div className="card">
-        {doctores.map((doctor,id) =>(
-          <div key={id} className="card">
-          <img src="./images/doctor.jpg" alt="Foto Doctor Generica"></img>
-          <h3>{doctor.username}</h3> 
+      {doctores.map((doctor) => (
+        <div key={doctor.id} className="card">
+          <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
+          <h3>{doctor.username}</h3>
           <h4>{doctor.name}</h4>
+          <button
+            onClick={(e) => addFav(e, doctor.id)}
+            className={`favButton ${favoritos.some((fav) => fav.id === doctor.id) ? "active" : ""}`}
+          >
+            {favoritos.some((fav) => fav.id === doctor.id) ? "Remove fav" : "Add fav"}
+          </button>
         </div>
-        ))}
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+      ))}
     </div>
   );
 };
 
 export default Card;
+
+

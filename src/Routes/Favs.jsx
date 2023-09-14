@@ -1,18 +1,37 @@
-import React from "react";
-//import Card from "../Components/Card";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import React, { useState, useEffect } from "react";
+import Card from "../Components/Card";
 
 const Favs = () => {
+  const [favoritos, setFavoritos] = useState([]);
+
+  const obtenerFavoritosDesdeLocalStorage = () => {
+    const favoritosGuardados = JSON.parse(localStorage.getItem("favoritos")) || [];
+    setFavoritos(favoritosGuardados);
+  };
+
+  useEffect(() => {
+    obtenerFavoritosDesdeLocalStorage();
+  }, []);
 
   return (
-    <>
-      <h1>Dentista Favorito</h1>
-      <div className="card-grid">
-        {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
-      </div>
-    </>
+    <div>
+    <h1>Dentistas Favoritos</h1>
+    <div className="card-grid">
+      {favoritos.map((doctor) => (
+        <div key={doctor.id} className="card">
+          <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
+          <h3>{doctor.username}</h3>
+          <h4>{doctor.name}</h4>
+          <button
+            //onClick={(e) => delFav(e, doctor.id)}
+            className={`favButton ${favoritos.some((fav) => fav.id === doctor.id) ? "active" : ""}`}
+          >
+            {favoritos.some((fav) => fav.id === doctor.id) ? "Remove fav" : "Add fav"}
+          </button>
+        </div>
+      ))}
+    </div>
+    </div>
   );
 };
 

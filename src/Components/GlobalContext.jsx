@@ -7,6 +7,7 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children })  => {
   const [state, dispatch] = useReducer(themeReducer, initialState);
   const [doctores, setDoctores] = useState([]);
+  
 
    // Función asincrónica para obtener datos de la API
    const fetchData = async () => {
