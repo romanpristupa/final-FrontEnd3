@@ -25,7 +25,7 @@ const Card = () => {
 
       localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
     } 
-    alert ("El profesional " + doctor.name + "ah sido agregado a favoritos");
+    alert ("El profesional " + doctor.name  + " ah sido agregado a favoritos");
   };
 
   return (
