@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "./GlobalContext";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   const { doctores } = useTheme();
@@ -30,15 +31,13 @@ const Card = () => {
     <div className="card-body">
       {doctores.map((doctor) => (
         <div key={doctor.id} className="card">
+          <Link to={`/detail/${doctor.id}`}>
           <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
           <h3>{doctor.username}</h3>
           <h4>{doctor.name}</h4>
-          <button
-            onClick={(e) => addFav(e, doctor.id)}
-            className={`favButton ${favoritos.some((fav) => fav.id === doctor.id) ? "active" : ""}`}
-          >
-            {favoritos.some((fav) => fav.id === doctor.id) ? "Remove fav" : "Add fav"}
-          </button>
+          </Link>
+          <button onClick={(e) => addFav(e, doctor.id)} className={`favButton ${favoritos.some((fav) => fav.id === doctor.id) ? "active" : ""}`}>Favorito</button>
+          
         </div>
       ))}
     </div>
