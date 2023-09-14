@@ -11,12 +11,12 @@ const Card = () => {
   }
 
   return (
-    <div className="card">
+    <div className="card-body">
         {doctores.map((doctor,id) =>(
           <div key={id} className="card">
-          <img src="./images/doctor.jpg" alt="Foto Doctor Generica"></img>
-          <h3>{doctor.username}</h3> 
-          <h4>{doctor.name}</h4>
+          <img className="img-card" src="./images/doctor.jpg" alt="Foto Doctor Generica"></img>
+          <h3 className="card-h3">{doctor.username}</h3> 
+          <h4 className="card-h4">{doctor.name}</h4>
         </div>
         ))}
         {/* En cada card deberan mostrar en name - username y el id */}
