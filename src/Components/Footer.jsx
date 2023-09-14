@@ -5,6 +5,8 @@ const Footer = () => {
     <footer>
         <p>Powered by NAOKY solutions</p>
         <img src="./images/logo.png" alt='Naoky logo' />
+        <p>PRISTUPA</p>
+        <p>FRANCO</p>
     </footer>
   )
 }

@@ -24,7 +24,8 @@ const Card = () => {
       setFavoritos(nuevosFavoritos);
 
       localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
-    }
+    } 
+    alert ("El profesional " + doctor.name + "ah sido agregado a favoritos");
   };
 
   return (
@@ -32,11 +33,16 @@ const Card = () => {
       {doctores.map((doctor) => (
         <div key={doctor.id} className="card">
           <Link to={`/detail/${doctor.id}`}>
-          <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
+          <img className="img-card" src="./images/doctor.jpg" alt="Foto Doctor Generica" />
           <h3>{doctor.username}</h3>
           <h4>{doctor.name}</h4>
           </Link>
-          <button onClick={(e) => addFav(e, doctor.id)} className={`favButton ${favoritos.some((fav) => fav.id === doctor.id) ? "active" : ""}`}>Favorito</button>
+          <button onClick={(e) => addFav(e, doctor.id)} 
+            className={`favButton 
+            ${favoritos.some((fav) => 
+            fav.id === doctor.id) ? "active" : ""}`
+            }>Favorito
+            </button>
           
         </div>
       ))}

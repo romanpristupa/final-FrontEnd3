@@ -13,7 +13,7 @@ import NotFound from "./Routes/NotFound";
 function App() {
   return (
    <ThemeProvider>
-      <div className= "App" >
+      <div className= "app" >
              <Router>
                 <Navbar />
                 <Routes>              
