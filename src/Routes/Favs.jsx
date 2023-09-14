@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Favs = () => {
   const [favoritos, setFavoritos] = useState([]);
@@ -28,9 +29,11 @@ const Favs = () => {
       <div className="card-grid">
         {favoritos.map((doctor) => (
           <div key={doctor.id} className="card">
+            <Link to={`/detail/${doctor.id}`}>
             <img src="./images/doctor.jpg" alt="Foto Doctor Generica" />
             <h3>{doctor.username}</h3>
             <h4>{doctor.name}</h4>
+            </Link>
             <button onClick={(e) => delFav(e, doctor.id)}>Eliminar</button>
           </div>
         ))}
