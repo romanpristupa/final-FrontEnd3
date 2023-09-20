@@ -58,7 +58,6 @@ code {
   background-color: var(--button-favs);
   padding: 10px;
   border: none;
-  width: 100%;
   cursor: pointer;
 }
 
@@ -112,8 +111,8 @@ li {
 button {
   background-color: var(--semi-oscuro);
   color: var(--app-grey);
-  
-  border-radius: 5px;
+  width: 40px;
+  border-radius: 3px;
   cursor: pointer;
   height: 30px;
   box-shadow: var(--semi-oscuro) 0px 2px 95px, var(--amarelo) 0px 9px 30px;
